@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        #playBtn {
+            border: solid 1px #333;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<script src="./app.js"></script>
+<body onload="onload()">
+    <video width="500" height="500" id="video" autoplay></video>
+    <div id="controls" class="hidden">
+        <a id="playBtn">Play</a>
+        <span id="timer">00:00</span>
+        <input type="range" step="0.1" min="0" max="1" value="0" id="volume">
+    </div>
+    <button id="button" onclick="videoTest()" value="0">next video</button>
+    <script>
+        const video = document.getElementById('video');
+        const vidControls = document.getElementById('controls');
+        video.addEventListener('canplaythrough', () => {
+            vidControls.classList.remove('hidden');
+            //video.volume = vid
+        });
+    </script>
+</body>
+</html>
